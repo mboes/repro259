@@ -1,0 +1,24 @@
+language: cpp
+dist: trusty
+
+addons:
+  apt:
+    packages:
+    - realpath
+
+before_install:
+- rm -rf $HOME/.cache/bazel/_bazel_$USER/install
+- wget https://github.com/bazelbuild/bazel/releases/download/0.13.0/bazel-0.13.0-without-jdk-installer-linux-x86_64.sh
+#- sha256sum -c tools/bazel-0.13.0-without-jdk-installer-linux-x86_64.sh.sha256
+- chmod +x bazel-0.13.0-without-jdk-installer-linux-x86_64.sh
+- ./bazel-0.13.0-without-jdk-installer-linux-x86_64.sh --user
+- export PATH=$HOME/bin:$PATH
+
+install:
+- echo 'build --jobs=4 --curses=no --verbose_failures' >> $HOME/.bazelrc
+- echo "import %workspace%/tools/bazelrc/linux-$CC" >> $HOME/.bazelrc
+
+script: bazel build @haskell_clock//:clock
+
+git:
+  depth: 1
