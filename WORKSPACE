@@ -3,11 +3,11 @@ workspace(name = "toktok")
 # Haskell
 # =========================================================
 
-RULES_HASKELL_VERSION = "fix259"
+RULES_HASKELL_VERSION = "ee49e76f111adb4a8f20ebbabcca094d51933199"
 
 http_archive(
     name = "io_tweag_rules_haskell",
-    sha256 = "a6a3ca731bd15a232c33d2912097501649279ddffe03d809fe691ad28eaf5d51",
+    sha256 = "e862cd324d0709960fd39c5b94b6e2293fca2ed15446cc460f29b3b1960bbfc2",
     strip_prefix = "rules_haskell-%s" % RULES_HASKELL_VERSION,
     urls = ["https://github.com/tweag/rules_haskell/archive/%s.tar.gz" % RULES_HASKELL_VERSION],
 )
