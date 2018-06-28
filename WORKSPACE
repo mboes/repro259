@@ -3,7 +3,7 @@ workspace(name = "toktok")
 # Haskell
 # =========================================================
 
-RULES_HASKELL_VERSION = "e815451984e78279cd20c84e3e1990617c60740f"
+RULES_HASKELL_VERSION = "fix259"
 
 http_archive(
     name = "io_tweag_rules_haskell",
